@@ -46,7 +46,7 @@ composer require tobento/app-spam
 
 ## Requirements
 
-- PHP 8.0 or greater
+- PHP 8.4 or greater
 
 # Documentation
 
@@ -68,7 +68,7 @@ use Tobento\App\AppFactory;
 use Tobento\App\Spam\DetectorsInterface;
 
 // Create the app
-$app = (new AppFactory())->createApp();
+$app = new AppFactory()->createApp();
 
 // Add directories:
 $app->dirs()
@@ -133,7 +133,7 @@ To protect your form against spam, add the ```ProtectAgainstSpam``` middleware t
 use Tobento\App\AppFactory;
 use Tobento\App\Spam\Middleware\ProtectAgainstSpam;
 
-$app = (new AppFactory())->createApp();
+$app = new AppFactory()->createApp();
 
 // Add directories:
 $app->dirs()
@@ -493,7 +493,7 @@ In addition, you may boot the ```ValidationSpamRule``` boot if you want to suppo
 use Tobento\App\AppFactory;
 
 // Create the app
-$app = (new AppFactory())->createApp();
+$app = new AppFactory()->createApp();
 
 // Adding boots
 $app->boot(\Tobento\App\Spam\Boot\ValidationSpamRule::class);
@@ -509,7 +509,7 @@ Otherwise, you will need to boot the validator boot:
 use Tobento\App\AppFactory;
 
 // Create the app
-$app = (new AppFactory())->createApp();
+$app = new AppFactory()->createApp();
 
 // Adding boots
 $app->boot(\Tobento\App\Validation\Boot\Validator::class);
@@ -580,7 +580,7 @@ The boot is automatically loaded by the [Spam Boot](#spam-boot).
 use Tobento\App\AppFactory;
 
 // Create the app
-$app = (new AppFactory())->createApp();
+$app = new AppFactory()->createApp();
 
 // Adding boots
 // $app->boot(\Tobento\App\Spam\Boot\HttpSpamErrorHandler::class); // not needed to boot!
