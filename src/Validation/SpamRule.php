@@ -51,8 +51,8 @@ class SpamRule extends Rule implements AutowireAware
      */
     final public function __construct(
         null|string|DetectorFactoryInterface $detector = null,
-        protected $skipValidation = null,
-        protected null|string $errorMessage = null,
+        $skipValidation = null,
+        null|string $errorMessage = null,
     ) {
         $this->passes = new Passes(
             passes: static function (mixed $value, array $parameters, DetectorsInterface $detectors) use ($detector): bool {
@@ -85,22 +85,6 @@ class SpamRule extends Rule implements AutowireAware
             skipValidation: $skipValidation,
             errorMessage: $errorMessage ?: static::MESSAGES['passes'],
         );
-    }
-    
-    /**
-     * Create a new instance.
-     *
-     * @param null|string|DetectorFactoryInterface $detector
-     * @param null|bool|callable $skipValidation
-     * @param null|string $errorMessage
-     * @return static
-     */
-    public static function new(
-        null|string|DetectorFactoryInterface $detector = null,
-        $skipValidation = null,
-        null|string $errorMessage = null,
-    ): static {
-        return new static($detector, $skipValidation, $errorMessage);
     }
     
     /**
