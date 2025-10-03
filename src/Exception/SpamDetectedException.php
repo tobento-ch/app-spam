@@ -28,7 +28,6 @@ class SpamDetectedException extends SpamException
      * @param string $message
      * @param int $code
      * @param null|Throwable $previous
-     * @param null|TokenInterface $token
      */
     public function __construct(
         protected DetectorInterface $detector,
